@@ -9,16 +9,13 @@ public class WordSearchTest {
         Scanner scan = new Scanner(System.in);
         //for calling methods, will change later
         WordSearchTest myWordSearch = new WordSearchTest();
-
+        //loop user menu
         do {  
             myWordSearch.userMenu(userInt);
             //get user input
             userInt = scan.nextInt();
         } while (userInt != 4);
         System.out.println("Goodbye!");
-
-
-        
     } // end main method
     //user menu
     public void userMenu(int userInt){
