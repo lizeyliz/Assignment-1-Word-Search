@@ -9,24 +9,17 @@ public class WordSearchTest {
         Scanner scan = new Scanner(System.in);
         //for calling methods, will change later
         WordSearchTest myWordSearch = new WordSearchTest();
-        
-        myWordSearch.intro();
+
         do {  
-            //print user menu
-            System.out.println("1) Create a wordsearch");
-            System.out.println("2) View a wordsearch with solutions");
-            System.out.println("3) View a wordsearch without solutions");
-            System.out.println("4) Quit");
+            myWordSearch.userMenu(userInt);
             //get user input
             userInt = scan.nextInt();
-            myWordSearch.userMenu(userInt);
         } while (userInt != 4);
+        System.out.println("Goodbye!");
+
 
         
     } // end main method
-    public void intro() {
-        System.out.println("Intro text");
-    }
     //user menu
     public void userMenu(int userInt){
         switch (userInt) {
@@ -41,11 +34,15 @@ public class WordSearchTest {
             }
             case 4 -> {
                 //quit
-                System.out.println("Goodbye!");
             }
             default -> {
-                System.out.println("Please enter valid input.");
+                System.out.println("Enter a number between 1 and 4:");
             } 
         } //end switch/case
+        //print user menu
+        System.out.println("1) Create a wordsearch");
+        System.out.println("2) View a wordsearch with solutions");
+        System.out.println("3) View a wordsearch without solutions");
+        System.out.println("4) Quit");
     } // end method userMenu
 }
