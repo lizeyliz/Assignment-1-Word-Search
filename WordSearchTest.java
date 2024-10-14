@@ -2,6 +2,7 @@
 // Multi-Dimensional Arrays: https://www.w3schools.com/java/java_arrays_multi.asp
 // Method Calls: https://www.w3schools.com/java/java_class_methods.asp 
 import java.util.Scanner;
+//import random #s
 public class WordSearchTest {
     public static void main(String[] args) {
         //initialize
@@ -42,4 +43,26 @@ public class WordSearchTest {
         System.out.println("3) View a wordsearch without solutions");
         System.out.println("4) Quit");
     } // end method userMenu
+
+    //create a wordsearch
+    public String createWordSearch() {
+        //e.g char word[x][y] = 'c' location of char
+        String wordSearch = "";
+        //test words, will add user input later
+        String word1 = "crane";
+        String word2 = "place";
+        String word3 = "times";
+        String word4 = "happy";
+        String word5 = "crazy";
+        //array of words
+        String[] words = {word1, word2, word3, word4, word5};
+        
+        //horizontal: x+1, y for each increment
+        //vertical: x, y-1, for each increment
+        return wordSearch;
+    }
+
+    //view a wordsearch with solutions
+
+    //view a wordsearch without solutions
 }
