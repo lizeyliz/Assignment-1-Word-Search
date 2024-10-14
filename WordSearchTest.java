@@ -48,6 +48,7 @@ public class WordSearchTest {
 
     //create a wordsearch
     public String createWordSearch() {
+        //looking up print in grid java, use two dimensional array
         //e.g char word[x][y] = 'c' location of char
         String wordSearch = "x x x x x"; //times 5 (newline)
         //test words, will add user input later
