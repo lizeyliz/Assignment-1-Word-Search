@@ -47,15 +47,18 @@ public class WordSearchTest {
     //create a wordsearch
     public String createWordSearch() {
         //e.g char word[x][y] = 'c' location of char
-        String wordSearch = "";
+        String wordSearch = "x x x x x"; //times 5 (newline)
         //test words, will add user input later
         String word1 = "crane";
         String word2 = "place";
         String word3 = "times";
         String word4 = "happy";
         String word5 = "crazy";
+        //array of chars
+        char[] allChars = new char[24];
         //array of words
         String[] words = {word1, word2, word3, word4, word5};
+        //go through words
         
         //horizontal: x+1, y for each increment
         //vertical: x, y-1, for each increment
