@@ -10,6 +10,8 @@ public class WordSearchTest {
         Scanner scan = new Scanner(System.in);
         //for calling methods, will change later
         WordSearchTest myWordSearch = new WordSearchTest();
+        //test
+        myWordSearch.createWordSearch();
         //loop user menu
         do {  
             myWordSearch.userMenu(userInt);
@@ -58,8 +60,15 @@ public class WordSearchTest {
         char[] allChars = new char[24];
         //array of words
         String[] words = {word1, word2, word3, word4, word5};
-        //go through words
-        
+        //word 1 char array
+        char[] word1Chars = new char[5];
+        for (int i = 0; i < 5; i++) {
+            word1Chars[i]= word1.charAt(i);
+        }
+        //TESTING print word1Chars
+        for (int i = 0; i < 5; i++) {
+            System.out.println(word1Chars[i]);
+        }
         //horizontal: x+1, y for each increment
         //vertical: x, y-1, for each increment
         return wordSearch;
