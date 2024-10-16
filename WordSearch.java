@@ -7,5 +7,11 @@ public class WordSearch {
     private String word5; 
 
     //constructor
-    public WordSearch
+    public WordSearch(String word1, String word2, String word3, String word4, String word5){
+        this.word1 = word1;
+        this.word2 = word2;
+        this.word3 = word3;
+        this.word4 = word4;
+        this.word5 = word5;
+    }
 }
