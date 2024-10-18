@@ -2,6 +2,8 @@
 // Multi-Dimensional Arrays: https://www.w3schools.com/java/java_arrays_multi.asp
 // Method Calls: https://www.w3schools.com/java/java_class_methods.asp 
 // For-Each Loops: https://www.w3schools.com/java/java_foreach_loop.asp
+// Google AI print grid in Java
+// Google AI initialize multidimensional array to size java
 import java.util.Scanner;
 //import random #s
 public class WordSearchTest {
@@ -13,6 +15,23 @@ public class WordSearchTest {
         WordSearchTest myWordSearch = new WordSearchTest();
         //test
         myWordSearch.createWordSearch();
+        
+        //initialize grid two dimensional array 
+        char[][] grid2 = new char[20][20];
+        // Initialize elements (if needed)
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 20; j++) {
+                grid2[i][j] = 'x'; // Example initialization
+            }
+        }
+        //print grid
+        for (char[] row : grid2) {
+            for (char cell : row) {
+                System.out.print(cell + " "); // Adjust the width as needed
+            }
+            System.out.println();
+        }
+
         //loop user menu
         /*do {  
             myWordSearch.userMenu(userInt);
