@@ -1,6 +1,7 @@
 // Citation:
 // Multi-Dimensional Arrays: https://www.w3schools.com/java/java_arrays_multi.asp
 // Method Calls: https://www.w3schools.com/java/java_class_methods.asp 
+// For-Each Loops: https://www.w3schools.com/java/java_foreach_loop.asp
 import java.util.Scanner;
 //import random #s
 public class WordSearchTest {
@@ -13,12 +14,12 @@ public class WordSearchTest {
         //test
         myWordSearch.createWordSearch();
         //loop user menu
-        do {  
+        /*do {  
             myWordSearch.userMenu(userInt);
             //get user input
             userInt = scan.nextInt();
         } while (userInt != 4);
-        System.out.println("Goodbye!");
+        System.out.println("Goodbye!");*/
     } // end main method
     //user menu
     public void userMenu(int userInt){
@@ -47,6 +48,7 @@ public class WordSearchTest {
     } // end method userMenu
 
     //create a wordsearch
+    //make sure you have different directions
     public String createWordSearch() {
         //looking up print in grid java, use two dimensional array
         //e.g char word[x][y] = 'c' location of char
