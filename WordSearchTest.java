@@ -14,20 +14,30 @@ public class WordSearchTest {
         //for calling methods, will change later
         WordSearchTest myWordSearch = new WordSearchTest();
         //test
-        myWordSearch.createWordSearch();
+        //myWordSearch.createWordSearch();
 
-        //initialize grid two dimensional array 
+        //initialize two dimensional array grid
         char[][] grid = new char[20][20];
-        // Initialize elements (if needed)
+        // Initialize grid elements
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
-                grid[i][j] = 'x'; // Example initialization
+                grid[i][j] = 'x';
             }
         }
+        //add word 1 to grid vertically (loc 1 to 5)
+        //have to add space after words (maybe fix this later)
+        String word1 = "crane ";
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 1; j++) {
+                grid[i][j] = word1.charAt(i);
+            }
+        }
+
+
         //print grid
         for (char[] row : grid) {
             for (char cell : row) {
-                System.out.print(cell + " "); // Adjust the width as needed
+                System.out.print(cell + " ");
             }
             System.out.println();
         }
