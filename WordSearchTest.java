@@ -15,17 +15,17 @@ public class WordSearchTest {
         WordSearchTest myWordSearch = new WordSearchTest();
         //test
         myWordSearch.createWordSearch();
-        
+
         //initialize grid two dimensional array 
-        char[][] grid2 = new char[20][20];
+        char[][] grid = new char[20][20];
         // Initialize elements (if needed)
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
-                grid2[i][j] = 'x'; // Example initialization
+                grid[i][j] = 'x'; // Example initialization
             }
         }
         //print grid
-        for (char[] row : grid2) {
+        for (char[] row : grid) {
             for (char cell : row) {
                 System.out.print(cell + " "); // Adjust the width as needed
             }
