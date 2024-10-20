@@ -10,8 +10,8 @@ public class Grid {
         String word2 = "place";
 
         //initialize wordSearch array to rows x columns
-        int rows = 7;
-        int columns = 7;
+        int rows = 5;
+        int columns = 5;
         char wordSearch[][] = new char[rows][columns];
         //populate array wordSearch[][] with xs
         for (int row = 0; row < rows; row++) {
@@ -39,8 +39,8 @@ public class Grid {
     //(so i can change grid size easily)
     public static char[][] placeHorizontally(char[][] wordSearch, SecureRandom secureRandom, String word, int rows, int columns) {
         //create random ints
-        int rowInt = secureRandom.nextInt(rows - 4);//between 0 and rows - 4
-        int columnInt = secureRandom.nextInt(columns = 4);//between 0 and columns - 4
+        int rowInt = secureRandom.nextInt(rows);
+        int columnInt = secureRandom.nextInt(columns - word.length() + 1);
         //print for test purposes
         System.out.println(word);
         System.out.println("Row int: " + rowInt);
@@ -50,8 +50,20 @@ public class Grid {
         //rows: stay the same, columns: increase
         int index = 0; //index in string
         for (int j = columnInt; j < columnInt + 5; j++) {
-            wordSearch[rowInt][j] = word.charAt(index);
-            index++;//increasing so we can go through word
+            //exception: words shouldn't overwrite eachother
+            //if empty, fill with word (currently only works for first char)
+            if(wordSearch[rowInt][j] == '-'){
+                wordSearch[rowInt][j] = word.charAt(index);
+                index++;//increasing so we can go through word
+            } else {
+                //move down a row
+                rowInt++;
+                System.out.println("moved down a row"); //test purposes
+                //make sure j doesn't increase
+                j--;
+                //go back to beginning of for loop
+                continue;
+            }
         }//end for loop
         return wordSearch;
     }//end method placeHorizontally
@@ -63,3 +75,4 @@ public class Grid {
 //  maybe put user words in first and then change blank spaces to random letters
 // - make different printing directions their own methods and randomize which
 //   method is called for each word?
+// - test for exceptions
