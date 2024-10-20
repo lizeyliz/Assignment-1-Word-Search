@@ -4,9 +4,8 @@
 // For-Each Loops: https://www.w3schools.com/java/java_foreach_loop.asp
 // Google AI search "print grid in Java"
 // Google AI search "initialize multidimensional array to size java"
-import java.util.Scanner;
-//import random #s
 import java.security.SecureRandom;
+import java.util.Scanner;
 public class WordSearchTest {
     public static void main(String[] args) {
         //initialize

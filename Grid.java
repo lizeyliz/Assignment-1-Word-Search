@@ -1,7 +1,4 @@
-import java.nio.file.ClosedFileSystemException;
-import javax.sound.sampled.SourceDataLine;
 import java.security.SecureRandom;
-import javax.management.relation.RelationSupport;
 
 public class Grid {
     public static void main(String[] args) {
@@ -13,6 +10,7 @@ public class Grid {
         String word2 = "place";
         String word3 = "times";
         String word4 = "happy";
+        String word5 = "crazy";
 
         //initialize wordSearch array to rows x columns
         int rows = 2;
@@ -149,7 +147,7 @@ public class Grid {
 }//end class
 
 //To do:
-// - make sure words don't overlap: if does NOT contain'-', don't put word there
+// - create method to prevent word overlaps (currently have code in placeHorizontally)
 // - make different printing directions their own methods and randomize which
 //   method is called for each word?
 // - test for exceptions
