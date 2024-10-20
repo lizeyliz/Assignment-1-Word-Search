@@ -48,23 +48,18 @@ public class Grid {
         //create random ints
         //int rowInt = secureRandom.nextInt(rows);
         //int columnInt = secureRandom.nextInt(columns - word.length() + 1);
-        //print for test purposes
-        System.out.println(word);
-        System.out.println("Row int: " + rowInt);
-        System.out.println("Column int: " + columnInt);
 
-        //middle var
-        int m = columnInt + word.length();
+        //test printing
+        System.out.println(word);
+        System.out.println("Row int initial: " + rowInt);
+        System.out.println("Column intitial: " + columnInt);
 
         //place word horizontally
-        //rows: stay the same, columns: increase
         int index = 0; //index in string
-        for (int j = columnInt; j < m; j++) {
+        for (int j = columnInt; j < columnInt + word.length(); j++) {
             //exception: words shouldn't overwrite eachother
             //need to overwrite word already printed with '-' if moving down a row
             //add test case for exception catching (overlap in middle of word)
-            System.out.println("J: " + j);
-            System.out.println("index: " + index);
             if(wordSearch[rowInt][j] == '-') {
                 wordSearch[rowInt][j] = word.charAt(index);
                 index++;//increasing so we can go through word
@@ -77,10 +72,9 @@ public class Grid {
                 //move down a row
                 rowInt++;
                 System.out.println("moved down a row"); //test purposes
-                j = -1;
+                j = columnInt - 1; //will go back to original value for column int when starting the loop again
                 //set word index back to zero to start from beginning
                 index = 0;
-                m = columnInt + word.length() - 1;
                 //go back to beginning of for loop
 
                 //catch exception here (try/catch) if can't move down a row, move up a row
