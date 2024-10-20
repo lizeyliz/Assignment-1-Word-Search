@@ -25,7 +25,7 @@ public class Grid {
         //call method placeHorizontally for word1
         placeHorizontally(wordSearch, secureRandom, word1, rows, columns, 0, 4);
         //call method placeHorizontally for word2
-        placeHorizontally(wordSearch, secureRandom, word2, rows, columns, 0, 1);
+        placeHorizontally(wordSearch, secureRandom, word2, rows, columns, 0, 5);
         //call method placeVertically for word3
         //placeVertically(wordSearch, secureRandom, word3, rows, columns);
         //call place diagonally for word4
@@ -65,8 +65,8 @@ public class Grid {
                 index++;//increasing so we can go through word
             } else {
                 //replace previous word placement with '-'s (overwrote letters of previous word, fixed by adding minus 1 to middle statement
-                // should be minus a variable (number of overlaps)?) mb easier if you catch exceptions in main
-                for (int i = columnInt; i < columnInt + word.length() - 2; i++) {
+                //mb easier if you catch exceptions in main
+                for (int i = columnInt; i < j; i++) {
                     wordSearch[rowInt][i] = '-';
                 }
                 //move down a row
