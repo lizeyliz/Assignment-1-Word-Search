@@ -12,8 +12,8 @@ public class Grid {
         String word4 = "happy";
 
         //initialize wordSearch array to rows x columns
-        int rows = 20;
-        int columns = 20;
+        int rows = 10;
+        int columns = 10;
         char wordSearch[][] = new char[rows][columns];
         //populate array wordSearch[][] with xs
         for (int row = 0; row < rows; row++) {
@@ -23,9 +23,9 @@ public class Grid {
         }//end outer for loop
 
         //call method placeHorizontally for word1
-        placeHorizontally(wordSearch, secureRandom, word1, rows, columns, 0, 4);
+        placeHorizontally(wordSearch, secureRandom, word1, rows, columns);
         //call method placeHorizontally for word2
-        placeHorizontally(wordSearch, secureRandom, word2, rows, columns, 0, 5);
+        placeHorizontally(wordSearch, secureRandom, word2, rows, columns);
         //call method placeVertically for word3
         //placeVertically(wordSearch, secureRandom, word3, rows, columns);
         //call place diagonally for word4
@@ -40,14 +40,13 @@ public class Grid {
         }//end outer for loop
     }//end main method
 
-    //place word horizontally in a random location (make sure it fits page)
+    //place word horizontally in a random location
     //only putting rows and columns as parameters for test purposes
     //(so i can change grid size easily)
-    //adding row and column int for test purposes (will remove later)
-    public static char[][] placeHorizontally(char[][] wordSearch, SecureRandom secureRandom, String word, int rows, int columns, int rowInt, int columnInt) {
-        //create random ints
-        //int rowInt = secureRandom.nextInt(rows);
-        //int columnInt = secureRandom.nextInt(columns - word.length() + 1);
+    public static char[][] placeHorizontally(char[][] wordSearch, SecureRandom secureRandom, String word, int rows, int columns) {
+        //create random ints for rows and columns
+        int rowInt = secureRandom.nextInt(rows);
+        int columnInt = secureRandom.nextInt(columns - word.length() + 1);
 
         //test printing
         System.out.println(word);
@@ -57,28 +56,26 @@ public class Grid {
         //place word horizontally
         int index = 0; //index in string
         for (int j = columnInt; j < columnInt + word.length(); j++) {
-            //exception: words shouldn't overwrite eachother
-            //need to overwrite word already printed with '-' if moving down a row
-            //add test case for exception catching (overlap in middle of word)
+            //if spot is blank, put char there
             if(wordSearch[rowInt][j] == '-') {
                 wordSearch[rowInt][j] = word.charAt(index);
                 index++;//increasing so we can go through word
-            } else {
-                //replace previous word placement with '-'s (overwrote letters of previous word, fixed by adding minus 1 to middle statement
-                //mb easier if you catch exceptions in main
+            } else { //if spot contains char erase all previous letter placements
+                //replace previous word placement with '-'s
                 for (int i = columnInt; i < j; i++) {
                     wordSearch[rowInt][i] = '-';
-                }
+                }//end for loop
+
                 //move down a row
                 rowInt++;
                 System.out.println("moved down a row"); //test purposes
                 j = columnInt - 1; //will go back to original value for column int when starting the loop again
-                //set word index back to zero to start from beginning
-                index = 0;
-                //go back to beginning of for loop
+                index = 0; //start from beginning of word
 
                 //catch exception here (try/catch) if can't move down a row, move up a row
-            }
+                
+                //go back to beginning of for loop
+            }//end if/else
         }//end for loop
         return wordSearch;
     }//end method placeHorizontally
