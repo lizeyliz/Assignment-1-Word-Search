@@ -30,14 +30,16 @@ public class Grid {
         //placeVertically(wordSearch, secureRandom, word3, rows, columns);
         //call place diagonally for word4
         //placeDiagonally(wordSearch, secureRandom, word4, rows, columns);
+        
+        //print wordsearch with answers
+        printWordSearch(wordSearch, rows, columns);
+        
+        //print wordsearch without answers
+        System.out.println();
+        System.out.println("Without answers:");
+        addRandomChars(wordSearch, secureRandom, rows, columns);
+        printWordSearch(wordSearch, rows, columns);
 
-        //print wordSearch[][] grid
-        for (int row = 0; row < rows; row++) {
-            for (int column = 0; column < columns; column++) {
-                System.out.print(wordSearch[row][column] + " ");
-            }//end inner for loop
-            System.out.println();
-        }//end outer for loop
     }//end main method
 
     //place word horizontally in a random location
@@ -113,6 +115,32 @@ public class Grid {
         }
         return wordSearch;
     }//end placeDiagonally method
+
+    public static char[][] addRandomChars (char[][] wordSearch, SecureRandom secureRandom, int rows, int columns) {
+        //loop through wordSearch
+        for (int row = 0; row < rows; row++) {
+            for (int column = 0; column < columns; column++) {
+                if(wordSearch[row][column] == '-') { //if char = '-', replace with random nums
+                    wordSearch[row][column] = (char)(secureRandom.nextInt(25) + 97); //a-z ASCII values are 97-122 (inclusive)
+                } else {
+                    //leave it alone
+                }//end if/else
+            }//end inner for loop
+        }//end outer for loop
+        return wordSearch;
+    }//end method addRandomChars
+
+    public static void printWordSearch(char wordSearch[][], int rows, int columns) {
+        //print wordSearch[][] grid
+        for (int row = 0; row < rows; row++) {
+            for (int column = 0; column < columns; column++) {
+                System.out.print(wordSearch[row][column] + " ");
+            }//end inner for loop
+            System.out.println();
+        }//end outer for loop
+
+
+    }//end printWordSearch method
 }//end class
 
 //To do:
