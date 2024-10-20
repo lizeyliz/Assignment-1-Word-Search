@@ -1,7 +1,19 @@
+import java.security.SecureRandom;
+
 public class Grid {
     public static void main(String[] args) {
-        int rows = 5;
-        int columns = 5;
+        //instance of SecureRandom (object)
+        SecureRandom secureRandom = new SecureRandom();
+        //create random number between 0 and
+        int rowInt = secureRandom.nextInt(16);
+        int columnInt = secureRandom.nextInt(16);
+        //print random number for test purposes
+        System.out.println("Row int: " + rowInt);
+        System.out.println("Column int: " + columnInt);
+
+        //initialize
+        int rows = 25;
+        int columns = 25;
         //initialize wordSearch array to rows x columns
         char wordSearch[][] = new char[rows][columns];
 
@@ -23,11 +35,12 @@ public class Grid {
         //wordSearch[0][1] = word1.charAt(1);
 
         //loop to print crane horizontally in row 0
-        for (int i = 0; i < 1; i++) { //rows 
-            for (int j = 0; j < 5; j++) {//columns
-                wordSearch[i][j] = word1.charAt(j);
-            }
-            
+        
+        //rows: should stay the same
+        int index = 0;
+        for (int j = columnInt; j < columnInt + 5; j++) {//columns: should increase
+            wordSearch[rowInt][j] = word1.charAt(index);
+            index++;
         }
 
 
