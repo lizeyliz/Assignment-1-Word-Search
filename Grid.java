@@ -1,4 +1,7 @@
+import java.nio.file.ClosedFileSystemException;
+import javax.sound.sampled.SourceDataLine;
 import java.security.SecureRandom;
+import javax.management.relation.RelationSupport;
 
 public class Grid {
     public static void main(String[] args) {
@@ -12,8 +15,8 @@ public class Grid {
         String word4 = "happy";
 
         //initialize wordSearch array to rows x columns
-        int rows = 10;
-        int columns = 10;
+        int rows = 2;
+        int columns = 5;
         char wordSearch[][] = new char[rows][columns];
         //populate array wordSearch[][] with xs
         for (int row = 0; row < rows; row++) {
@@ -43,8 +46,7 @@ public class Grid {
     }//end main method
 
     //place word horizontally in a random location
-    //only putting rows and columns as parameters for test purposes
-    //(so i can change grid size easily)
+    //only putting rows and columns as parameters for test purposes (so i can change grid size easily)
     public static char[][] placeHorizontally(char[][] wordSearch, SecureRandom secureRandom, String word, int rows, int columns) {
         //create random ints for rows and columns
         int rowInt = secureRandom.nextInt(rows);
@@ -68,14 +70,15 @@ public class Grid {
                     wordSearch[rowInt][i] = '-';
                 }//end for loop
 
-                //move down a row
-                rowInt++;
-                System.out.println("moved down a row"); //test purposes
-                j = columnInt - 1; //will go back to original value for column int when starting the loop again
-                index = 0; //start from beginning of word
-
-                //catch exception here (try/catch) if can't move down a row, move up a row
+                //generate word in new location
+                rowInt = secureRandom.nextInt(rows);
+                columnInt = secureRandom.nextInt(columns - word.length() + 1); 
                 
+                j = columnInt - 1; //will go back to new value for column int when starting the loop again
+                index = 0; //will start from beginning of word
+
+                //test code
+                System.out.println("word was moved to new location");          
                 //go back to beginning of for loop
             }//end if/else
         }//end for loop
@@ -116,12 +119,14 @@ public class Grid {
         return wordSearch;
     }//end placeDiagonally method
 
+    //adds random chars to blank spots in wordsearch (must be called after word placement methods!)
     public static char[][] addRandomChars (char[][] wordSearch, SecureRandom secureRandom, int rows, int columns) {
         //loop through wordSearch
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
                 if(wordSearch[row][column] == '-') { //if char = '-', replace with random nums
-                    wordSearch[row][column] = (char)(secureRandom.nextInt(25) + 97); //a-z ASCII values are 97-122 (inclusive)
+                    //fills word search with chars a-z
+                    wordSearch[row][column] = (char)(secureRandom.nextInt(26) + 97); //a-z ASCII values are 97-122
                 } else {
                     //leave it alone
                 }//end if/else
@@ -145,14 +150,13 @@ public class Grid {
 
 //To do:
 // - make sure words don't overlap: if does NOT contain'-', don't put word there
-//  (add and check again?) won't work if you're putting random letters there
-//  maybe put user words in first and then change blank spaces to random letters
 // - make different printing directions their own methods and randomize which
 //   method is called for each word?
 // - test for exceptions
 // - create separate method for creating random numbers for row and column
 //   (so that you don't have to repeat code in each method)
 // - exception catching for moving rows
+// - add key for words you need to find to printed wordsearch
 
 //Things I learned:
 // - when you are happy with work in test branch, save to main branch (then the bad test code you write later won't overwrite it)
