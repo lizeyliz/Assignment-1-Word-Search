@@ -155,6 +155,7 @@ public class Grid {
 //   (so that you don't have to repeat code in each method)
 // - exception catching for moving rows
 // - add key for words you need to find to printed wordsearch
+// -github shit is still a mess, things divided between main and test branch
 
 //Things I learned:
 // - when you are happy with work in test branch, save to main branch (then the bad test code you write later won't overwrite it)
