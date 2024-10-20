@@ -10,8 +10,8 @@ public class Grid {
         String word2 = "place";
 
         //initialize wordSearch array to rows x columns
-        int rows = 25;
-        int columns = 25;
+        int rows = 7;
+        int columns = 7;
         char wordSearch[][] = new char[rows][columns];
         //populate array wordSearch[][] with xs
         for (int row = 0; row < rows; row++) {
@@ -20,8 +20,10 @@ public class Grid {
             }//end inner for loop
         }//end outer for loop
 
-        //call method placeHorizontally
-        placeHorizontally(wordSearch, secureRandom, word2);
+        //call method placeHorizontally for word1
+        placeHorizontally(wordSearch, secureRandom, word1, rows, columns);
+        //call method placeHorizontally for word2
+        placeHorizontally(wordSearch, secureRandom, word2, rows, columns);
 
         //print wordSearch[][] grid
         for (int row = 0; row < rows; row++) {
@@ -33,11 +35,14 @@ public class Grid {
     }//end main method
 
     //place word horizontally in a random location (make sure it fits page)
-    public static char[][] placeHorizontally(char[][] wordSearch, SecureRandom secureRandom, String word) {
+    //only putting rows and columns as parameters for test purposes
+    //(so i can change grid size easily)
+    public static char[][] placeHorizontally(char[][] wordSearch, SecureRandom secureRandom, String word, int rows, int columns) {
         //create random ints
-        int rowInt = secureRandom.nextInt(16);//between 0-15
-        int columnInt = secureRandom.nextInt(16);//between 0-15
+        int rowInt = secureRandom.nextInt(rows - 4);//between 0 and rows - 4
+        int columnInt = secureRandom.nextInt(columns = 4);//between 0 and columns - 4
         //print for test purposes
+        System.out.println(word);
         System.out.println("Row int: " + rowInt);
         System.out.println("Column int: " + columnInt);
 
