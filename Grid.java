@@ -8,10 +8,11 @@ public class Grid {
         //initialize words
         String word1 = "crane";
         String word2 = "place";
+        String word3 = "times";
 
         //initialize wordSearch array to rows x columns
-        int rows = 5;
-        int columns = 5;
+        int rows = 20;
+        int columns = 20;
         char wordSearch[][] = new char[rows][columns];
         //populate array wordSearch[][] with xs
         for (int row = 0; row < rows; row++) {
@@ -24,6 +25,8 @@ public class Grid {
         placeHorizontally(wordSearch, secureRandom, word1, rows, columns);
         //call method placeHorizontally for word2
         placeHorizontally(wordSearch, secureRandom, word2, rows, columns);
+        //call method placeVertically for word3
+        placeVertically(wordSearch, secureRandom, word3, rows, columns);
 
         //print wordSearch[][] grid
         for (int row = 0; row < rows; row++) {
@@ -67,6 +70,25 @@ public class Grid {
         }//end for loop
         return wordSearch;
     }//end method placeHorizontally
+
+    //place a word vertically in a random place
+    //works, but need to add code so it doesn't overwrite other words
+    public static char[][] placeVertically (char[][] wordSearch, SecureRandom secureRandom, String word, int rows, int columns) {
+        //create random ints
+        int rowInt = secureRandom.nextInt(rows - word.length() + 1);
+        int columnInt = secureRandom.nextInt(columns);
+        //print for test purposes
+        System.out.println(word);
+        System.out.println("Row int: " + rowInt);
+        System.out.println("Column int: " + columnInt);
+        //row increase, column stays the same
+        int index = 0;
+        for (int row = rowInt; row < rowInt + word.length(); row++) {
+            wordSearch[row][columnInt] = word.charAt(index);
+            index++;
+        }
+        return wordSearch;
+    }
 }//end class
 
 //To do:
@@ -76,3 +98,5 @@ public class Grid {
 // - make different printing directions their own methods and randomize which
 //   method is called for each word?
 // - test for exceptions
+// - create separate method for creating random numbers for row and column
+//   (so that you don't have to repeat code in each method)
