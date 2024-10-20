@@ -52,7 +52,7 @@ public class Grid {
         //place word horizontally
         //rows: stay the same, columns: increase
         int index = 0; //index in string
-        for (int j = columnInt; j < columnInt + 5; j++) {
+        for (int j = columnInt; j < columnInt + word.length(); j++) {
             //exception: words shouldn't overwrite eachother
             //if empty, fill with word (currently only works for first char)
             if(wordSearch[rowInt][j] == '-'){
@@ -65,7 +65,7 @@ public class Grid {
                 //make sure j doesn't increase
                 j--;
                 //go back to beginning of for loop
-                continue;
+                continue; //idk if this is neccessary but it helps my brain
             }
         }//end for loop
         return wordSearch;
@@ -86,9 +86,9 @@ public class Grid {
         for (int row = rowInt; row < rowInt + word.length(); row++) {
             wordSearch[row][columnInt] = word.charAt(index);
             index++;
-        }
+        }//end for loop
         return wordSearch;
-    }
+    }//end placeVertically method
 }//end class
 
 //To do:
