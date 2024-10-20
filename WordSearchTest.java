@@ -2,10 +2,11 @@
 // Multi-Dimensional Arrays: https://www.w3schools.com/java/java_arrays_multi.asp
 // Method Calls: https://www.w3schools.com/java/java_class_methods.asp 
 // For-Each Loops: https://www.w3schools.com/java/java_foreach_loop.asp
-// Google AI print grid in Java
-// Google AI initialize multidimensional array to size java
+// Google AI search "print grid in Java"
+// Google AI search "initialize multidimensional array to size java"
 import java.util.Scanner;
 //import random #s
+import java.security.SecureRandom;
 public class WordSearchTest {
     public static void main(String[] args) {
         //initialize
@@ -16,22 +17,32 @@ public class WordSearchTest {
         //test
         //myWordSearch.createWordSearch();
 
+        //bringing in random ints
+        SecureRandom secureRandom = new SecureRandom();
+        // Generate a random integer between 1 (inclusive) and 15 (exclusive)
+        int randomInt = secureRandom.nextInt(15) + 1; 
+        System.out.println(randomInt);
+
         //initialize two dimensional array grid
         char[][] grid = new char[20][20];
-        // Initialize grid elements
-        for (int i = 0; i < 20; i++) {
-            for (int j = 0; j < 20; j++) {
-                grid[i][j] = 'x';
+        // Initialize grid elements to x
+
+        for (int x = 0; x < 20; x++) { //rows
+            for (int y = 0; y < 20; y++) { //columns
+                grid[y][x] = 'x';
             }
         }
         //add word 1 to grid vertically (loc 1 to 5)
         //have to add space after words (maybe fix this later)
+        //add yourself, don't make user add space
         String word1 = "crane ";
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 1; j++) {
-                grid[i][j] = word1.charAt(i);
-            }
-        }
+        //test
+        //y,x
+        grid[0][0] = word1.charAt(0);
+        grid[0][1] = word1.charAt(1); 
+
+
+
 
 
         //print grid
