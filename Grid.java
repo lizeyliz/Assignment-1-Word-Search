@@ -9,6 +9,7 @@ public class Grid {
         String word1 = "crane";
         String word2 = "place";
         String word3 = "times";
+        String word4 = "happy";
 
         //initialize wordSearch array to rows x columns
         int rows = 20;
@@ -27,6 +28,8 @@ public class Grid {
         placeHorizontally(wordSearch, secureRandom, word2, rows, columns);
         //call method placeVertically for word3
         placeVertically(wordSearch, secureRandom, word3, rows, columns);
+        //call place diagonally for word4
+        placeDiagonally(wordSearch, secureRandom, word4, rows, columns);
 
         //print wordSearch[][] grid
         for (int row = 0; row < rows; row++) {
@@ -89,6 +92,21 @@ public class Grid {
         }//end for loop
         return wordSearch;
     }//end placeVertically method
+
+    //place diagonally (one direction: could create if/else with random #s
+    //for different directions)
+    //still working on: currently generates in specific spot, will add random generation
+    public static char[][] placeDiagonally (char[][] wordSearch, SecureRandom secureRandom, String word, int rows, int columns) {
+        /*wordSearch[0][0] = word.charAt(0);
+        wordSearch[1][1] = word.charAt(1);
+        wordSearch[2][2] = word.charAt(2);*/
+        int x = 0;
+        for (int index = 0; index < 5; index++) {
+            wordSearch[x][x] = word.charAt(index);
+            x++;
+        }
+        return wordSearch;
+    }//end placeDiagonally method
 }//end class
 
 //To do:
