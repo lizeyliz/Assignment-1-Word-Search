@@ -6,7 +6,7 @@
 import java.security.SecureRandom;
 import java.util.Scanner;
 
-public class Grid {
+public class WordSearch {
     public static void main(String[] args) {
         //instance of SecureRandom (object)
         SecureRandom secureRandom = new SecureRandom();
@@ -186,9 +186,28 @@ public class Grid {
         System.out.println("4) Quit");
     } // end method userMenu
 
-    //parameters this method needs: 
-    public static void preventOverwrites(char[][] wordSearch) {
+    //parameters that aren't in scope currently: columnInt, rowInt (for specific word,
+    //these two get their own method to generate?), j
+    public static void preventOverwrites(char[][] wordSearch, SecureRandom secureRandom,
+    int rowInt, int columnInt, int j, int rows, int columns, String word, int index) {
+        //if spot contains char erase all previous letter placements
+                //replace previous word placement with '-'s
+                for (int i = columnInt; i < j; i++) {
+                    wordSearch[rowInt][i] = '-';
+                }//end for loop
 
+                //generate word in new location
+                rowInt = secureRandom.nextInt(rows);
+                columnInt = secureRandom.nextInt(columns - word.length() + 1); 
+                
+                j = columnInt - 1; //will go back to new value for column int when starting the loop again
+                index = 0; //will start from beginning of word
+
+                //test code
+                System.out.println("word was moved to new location");          
+                //go back to beginning of for loop
+                
+                //need to return index
     }//end preventOverwrites method
 }//end class
 
