@@ -151,21 +151,7 @@ public class WordSearch {
         System.out.println("Initial row: " + rowInt);
         System.out.println("Initial column: " + columnInt);
 
-        /*for(int index = 0; index < word.length(); index++) {
-            if(wordSearch[rowInt][columnInt] == '-'){
-                wordSearch[rowInt][columnInt] = word.charAt(index);
-                rowInt++;
-                columnInt++;
-            } else {
-                //replace previous word placements with '-'
-                for(int index = 0)
-                index = -1;
-                rowInt = secureRandom.nextInt(rows - word.length() + 1);
-                columnInt = secureRandom.nextInt(columns - word.length() + 1);
-
-            }
-        }// end for loop*/
-        //generate without overlaps, need to test
+        //generate without overlaps
         for (int index = 0; index < word.length(); index++) {
             if(wordSearch[rowInt + index][columnInt + index] == '-'){
                 wordSearch[rowInt + index][columnInt + index] = word.charAt(index);
@@ -242,5 +228,5 @@ public class WordSearch {
 //   method is called for each word?
 // - add key for words you need to find to printed wordsearch
 // - get user menu working
-// - remove test code and clean up before turning in
+// - remove test code, add comments and clean up before turning in
 // - exta credit (enums etc)
