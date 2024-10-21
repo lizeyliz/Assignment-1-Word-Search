@@ -30,8 +30,8 @@ public class WordSearch {
         String word5 = "crazy";
 
         //initialize wordSearch array to rows x columns
-        int rows = 10;
-        int columns = 10;
+        int rows = 12;
+        int columns = 12;
         char wordSearch[][] = new char[rows][columns];
         //populate array wordSearch[][] with xs
         for (int row = 0; row < rows; row++) {
@@ -41,15 +41,15 @@ public class WordSearch {
         }//end outer for loop
 
         //call method placeHorizontally for word1
-        //placeHorizontally(wordSearch, secureRandom, word1, rows, columns);
+        placeHorizontally(wordSearch, secureRandom, word1, rows, columns);
         //call method placeHorizontally for word2
-        //placeHorizontally(wordSearch, secureRandom, word2, rows, columns);
+        placeHorizontally(wordSearch, secureRandom, word2, rows, columns);
         //call method placeVertically for word3
-        //placeVertically(wordSearch, secureRandom, word3, rows, columns);
+        placeVertically(wordSearch, secureRandom, word3, rows, columns);
         //call place diagonally for word4
         placeDiagonally(wordSearch, secureRandom, word4, rows, columns);
         //call place vertically for word 5
-        //placeVertically(wordSearch, secureRandom, word5, rows, columns);
+        placeVertically(wordSearch, secureRandom, word5, rows, columns);
         
         //print wordsearch with answers
         printWordSearch(wordSearch, rows, columns);
@@ -173,7 +173,10 @@ public class WordSearch {
                 for(int i = 0; i < index; i++){
                     wordSearch[rowInt + i][columnInt + i] = '-';
                 }//end for loop
+                rowInt = secureRandom.nextInt(rows - word.length() + 1);
+                columnInt = secureRandom.nextInt(columns - word.length() + 1);
                 index = -1;
+                System.out.println("Moved word");
             }//end if/else
         }//end for loop
         return wordSearch;
