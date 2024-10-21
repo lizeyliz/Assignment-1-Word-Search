@@ -185,6 +185,11 @@ public class Grid {
         System.out.println("3) View a wordsearch without solutions");
         System.out.println("4) Quit");
     } // end method userMenu
+
+    //parameters this method needs: 
+    public static void preventOverwrites(char[][] wordSearch) {
+
+    }//end preventOverwrites method
 }//end class
 
 //To do:
@@ -194,3 +199,5 @@ public class Grid {
 // - create separate method for creating random numbers for row and column
 //   (so that you don't have to repeat code in each method)
 // - add key for words you need to find to printed wordsearch
+// - remove test code and clean up before turning in
+// - exta credit (enums etc)
