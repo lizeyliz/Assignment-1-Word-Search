@@ -189,11 +189,9 @@ public class WordSearch {
 }//end class
 
 //To do:
-// - create method to prevent word overlaps (currently have code in placeHorizontally)
+// - prevent word overwrites in placeVertically and placeDiagonally
 // - make different printing directions their own methods and randomize which
 //   method is called for each word?
-// - create separate method for creating random numbers for row and column
-//   (so that you don't have to repeat code in each method)
 // - add key for words you need to find to printed wordsearch
 // - remove test code and clean up before turning in
 // - exta credit (enums etc)
