@@ -151,11 +151,31 @@ public class WordSearch {
         System.out.println("Initial row: " + rowInt);
         System.out.println("Initial column: " + columnInt);
 
-        for(int index = 0; index < word.length(); index++) {
-            wordSearch[rowInt][columnInt] = word.charAt(index);
-            rowInt++;
-            columnInt++;
-        }
+        /*for(int index = 0; index < word.length(); index++) {
+            if(wordSearch[rowInt][columnInt] == '-'){
+                wordSearch[rowInt][columnInt] = word.charAt(index);
+                rowInt++;
+                columnInt++;
+            } else {
+                //replace previous word placements with '-'
+                for(int index = 0)
+                index = -1;
+                rowInt = secureRandom.nextInt(rows - word.length() + 1);
+                columnInt = secureRandom.nextInt(columns - word.length() + 1);
+
+            }
+        }// end for loop*/
+        //generate without overlaps, need to test
+        for (int index = 0; index < word.length(); index++) {
+            if(wordSearch[rowInt + index][columnInt + index] == '-'){
+                wordSearch[rowInt + index][columnInt + index] = word.charAt(index);
+            } else {
+                for(int i = 0; i < index; i++){
+                    wordSearch[rowInt + i][columnInt + i] = '-';
+                }//end for loop
+                index = -1;
+            }//end if/else
+        }//end for loop
         return wordSearch;
     }//end placeDiagonally method
 
