@@ -30,8 +30,8 @@ public class WordSearch {
         String word5 = "crazy";
 
         //initialize wordSearch array to rows x columns
-        int rows = 2;
-        int columns = 5;
+        int rows = 6;
+        int columns = 6;
         char wordSearch[][] = new char[rows][columns];
         //populate array wordSearch[][] with xs
         for (int row = 0; row < rows; row++) {
@@ -45,7 +45,7 @@ public class WordSearch {
         //call method placeHorizontally for word2
         placeHorizontally(wordSearch, secureRandom, word2, rows, columns);
         //call method placeVertically for word3
-        //placeVertically(wordSearch, secureRandom, word3, rows, columns);
+        placeVertically(wordSearch, secureRandom, word3, rows, columns);
         //call place diagonally for word4
         //placeDiagonally(wordSearch, secureRandom, word4, rows, columns);
         
@@ -112,9 +112,28 @@ public class WordSearch {
         System.out.println("Column int: " + columnInt);
         //row increase, column stays the same
         int index = 0;
+        
         for (int row = rowInt; row < rowInt + word.length(); row++) {
-            wordSearch[row][columnInt] = word.charAt(index);
-            index++;
+            //if spot is blank, put char there
+            if(wordSearch[row][columnInt] == '-') {
+                wordSearch[row][columnInt] = word.charAt(index);
+                index++;//increasing so we can go through word
+            } else {//if spot contains char erase all previous letter placements
+                //replace previous word placement with '-'s
+                for (int i = rowInt; i < row; i++) {
+                    wordSearch[i][columnInt] = '-';
+                }//end for loop
+
+                //generate word in new location
+                columnInt = secureRandom.nextInt(columns);
+                rowInt = secureRandom.nextInt(rows - word.length() + 1); 
+                
+                row = rowInt - 1; //will go back to new value for row int when starting the loop again
+                index = 0; //will start from beginning of word        
+                //go back to beginning of for loop
+            }//end if/else
+            //wordSearch[row][columnInt] = word.charAt(index);
+            //index++;
         }//end for loop
         return wordSearch;
     }//end placeVertically method
@@ -193,5 +212,6 @@ public class WordSearch {
 // - make different printing directions their own methods and randomize which
 //   method is called for each word?
 // - add key for words you need to find to printed wordsearch
+// - get user menu working
 // - remove test code and clean up before turning in
 // - exta credit (enums etc)
