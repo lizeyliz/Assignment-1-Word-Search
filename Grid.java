@@ -1,7 +1,5 @@
 // Citation:
-// Multi-Dimensional Arrays: https://www.w3schools.com/java/java_arrays_multi.asp
-// Method Calls: https://www.w3schools.com/java/java_class_methods.asp 
-// For-Each Loops: https://www.w3schools.com/java/java_foreach_loop.asp
+// Multi-Dimensional Arrays: https://www.w3schools.com/java/java_arrays_multi.asp 
 // Google AI search "print grid in Java"
 // Google AI search "initialize multidimensional array to size java"
 
@@ -193,10 +191,6 @@ public class Grid {
 // - create method to prevent word overlaps (currently have code in placeHorizontally)
 // - make different printing directions their own methods and randomize which
 //   method is called for each word?
-// - test for exceptions
 // - create separate method for creating random numbers for row and column
 //   (so that you don't have to repeat code in each method)
-// - exception catching for moving rows
 // - add key for words you need to find to printed wordsearch
-// - github shit is still a mess, things divided between main and test branch (need to learn github and git)
-//   forget about test branch for now
