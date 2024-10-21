@@ -223,10 +223,11 @@ public class WordSearch {
 }//end class
 
 //To do:
-// - prevent word overwrites in placeVertically and placeDiagonally
 // - make different printing directions their own methods and randomize which
 //   method is called for each word?
 // - add key for words you need to find to printed wordsearch
 // - get user menu working
 // - remove test code, add comments and clean up before turning in
 // - exta credit (enums etc)
+// - try/catch finally for empty array wordSearch "you need to create a wordsearch
+//   before viewing"
