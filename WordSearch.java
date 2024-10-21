@@ -30,8 +30,8 @@ public class WordSearch {
         String word5 = "crazy";
 
         //initialize wordSearch array to rows x columns
-        int rows = 20;
-        int columns = 20;
+        int rows = 2;
+        int columns = 5;
         char wordSearch[][] = new char[rows][columns];
         //populate array wordSearch[][] with xs
         for (int row = 0; row < rows; row++) {
@@ -79,7 +79,7 @@ public class WordSearch {
             if(wordSearch[rowInt][j] == '-') {
                 wordSearch[rowInt][j] = word.charAt(index);
                 index++;//increasing so we can go through word
-            } else { //if spot contains char erase all previous letter placements
+            } else {//if spot contains char erase all previous letter placements
                 //replace previous word placement with '-'s
                 for (int i = columnInt; i < j; i++) {
                     wordSearch[rowInt][i] = '-';
@@ -188,6 +188,7 @@ public class WordSearch {
 
     //parameters that aren't in scope currently: columnInt, rowInt (for specific word,
     //these two get their own method to generate?), j
+    //mostly a scope issue
     public static void preventOverwrites(char[][] wordSearch, SecureRandom secureRandom,
     int rowInt, int columnInt, int j, int rows, int columns, String word, int index) {
         //if spot contains char erase all previous letter placements
@@ -207,7 +208,8 @@ public class WordSearch {
                 System.out.println("word was moved to new location");          
                 //go back to beginning of for loop
                 
-                //need to return index
+                //need to return index (plus a bunch of other stuff?) return array?
+                //combine all word placement methods?
     }//end preventOverwrites method
 }//end class
 
