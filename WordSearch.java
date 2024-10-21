@@ -30,8 +30,8 @@ public class WordSearch {
         String word5 = "crazy";
 
         //initialize wordSearch array to rows x columns
-        int rows = 6;
-        int columns = 6;
+        int rows = 10;
+        int columns = 10;
         char wordSearch[][] = new char[rows][columns];
         //populate array wordSearch[][] with xs
         for (int row = 0; row < rows; row++) {
@@ -41,13 +41,15 @@ public class WordSearch {
         }//end outer for loop
 
         //call method placeHorizontally for word1
-        placeHorizontally(wordSearch, secureRandom, word1, rows, columns);
+        //placeHorizontally(wordSearch, secureRandom, word1, rows, columns);
         //call method placeHorizontally for word2
-        placeHorizontally(wordSearch, secureRandom, word2, rows, columns);
+        //placeHorizontally(wordSearch, secureRandom, word2, rows, columns);
         //call method placeVertically for word3
-        placeVertically(wordSearch, secureRandom, word3, rows, columns);
+        //placeVertically(wordSearch, secureRandom, word3, rows, columns);
         //call place diagonally for word4
-        //placeDiagonally(wordSearch, secureRandom, word4, rows, columns);
+        placeDiagonally(wordSearch, secureRandom, word4, rows, columns);
+        //call place vertically for word 5
+        //placeVertically(wordSearch, secureRandom, word5, rows, columns);
         
         //print wordsearch with answers
         printWordSearch(wordSearch, rows, columns);
@@ -138,17 +140,21 @@ public class WordSearch {
         return wordSearch;
     }//end placeVertically method
 
-    //place diagonally (one direction: could create if/else with random #s
-    //for different directions)
+    //place diagonally
     //still working on: currently generates in specific spot, will add random generation
     public static char[][] placeDiagonally (char[][] wordSearch, SecureRandom secureRandom, String word, int rows, int columns) {
-        /*wordSearch[0][0] = word.charAt(0);
-        wordSearch[1][1] = word.charAt(1);
-        wordSearch[2][2] = word.charAt(2);*/
-        int x = 0;
-        for (int index = 0; index < 5; index++) {
-            wordSearch[x][x] = word.charAt(index);
-            x++;
+        int rowInt = secureRandom.nextInt(rows - word.length() + 1);
+        int columnInt = secureRandom.nextInt(columns - word.length() + 1);
+
+        //test purposes
+        System.out.println(word);
+        System.out.println("Initial row: " + rowInt);
+        System.out.println("Initial column: " + columnInt);
+
+        for(int index = 0; index < word.length(); index++) {
+            wordSearch[rowInt][columnInt] = word.charAt(index);
+            rowInt++;
+            columnInt++;
         }
         return wordSearch;
     }//end placeDiagonally method
