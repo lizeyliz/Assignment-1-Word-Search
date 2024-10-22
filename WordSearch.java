@@ -58,11 +58,11 @@ public class WordSearch {
     }//end method placeHorizontally
 
     //place a word vertically in a random place
-    public static char[][] placeVertically (char[][] wordSearch, SecureRandom secureRandom, String word, int rows, int columns) {
-        //create random ints
+    public static char[][] placeVertically (char[][] wordSearch, SecureRandom secureRandom, String word, 
+    int rows, int columns) {
+        //initialize
         int rowInt = secureRandom.nextInt(rows - word.length() + 1);
         int columnInt = secureRandom.nextInt(columns);
-        //row increase, column stays the same
         int index = 0;
         
         for (int row = rowInt; row < rowInt + word.length(); row++) {
@@ -82,35 +82,41 @@ public class WordSearch {
                 
                 row = rowInt - 1; //will go back to new value for row int when starting the loop again
                 index = 0; //will start from beginning of word        
-                //go back to beginning of for loop
             }//end if/else
         }//end for loop
         return wordSearch;
     }//end placeVertically method
 
-    //place diagonally
-    public static char[][] placeDiagonally (char[][] wordSearch, SecureRandom secureRandom, String word, int rows, int columns) {
+    //place a word diagonally in a random location
+    public static char[][] placeDiagonally (char[][] wordSearch, SecureRandom secureRandom, String word, 
+    int rows, int columns) {
+        //intitialize
         int rowInt = secureRandom.nextInt(rows - word.length() + 1);
         int columnInt = secureRandom.nextInt(columns - word.length() + 1);
 
         //generate without overlaps
-        for (int index = 0; index < word.length(); index++) {
+        for (int index = 0; index < word.length(); index++) { //loop through word characters
+            //if blank, place char at index there
             if(wordSearch[rowInt + index][columnInt + index] == '-'){
                 wordSearch[rowInt + index][columnInt + index] = word.charAt(index);
-            } else {
+            } else {//if not blank
                 for(int i = 0; i < index; i++){
+                    //replace previous char placements with '-'
                     wordSearch[rowInt + i][columnInt + i] = '-';
                 }//end for loop
+                //place in new location
                 rowInt = secureRandom.nextInt(rows - word.length() + 1);
                 columnInt = secureRandom.nextInt(columns - word.length() + 1);
-                index = -1;
+
+                index = -1;//so loop will start over from beginning
             }//end if/else
         }//end for loop
         return wordSearch;
     }//end placeDiagonally method
 
-    //adds random chars to blank spots in wordsearch (must be called after word placement methods!)
-    public static char[][] addRandomChars (char[][] wordSearch, SecureRandom secureRandom, int rows, int columns) {
+    //adds random chars to blank spots in wordsearch
+    public static char[][] addRandomChars (char[][] wordSearch, SecureRandom secureRandom, int rows, 
+    int columns) {
         //loop through wordSearch
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
@@ -124,9 +130,10 @@ public class WordSearch {
         }//end outer for loop
         return wordSearch;
     }//end method addRandomChars
-
+    
+    //print wordSearch
     public static void printWordSearch(char[][] wordSearch, int rows, int columns, String[] words) {
-        //print wordSearch[][] grid
+        //loop through wordsearch and print
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
                 System.out.print(wordSearch[row][column] + " ");
@@ -141,7 +148,10 @@ public class WordSearch {
     }//end printWordSearch method
 
     //create a wordsearch
-    public static char[][] createWordSearch(char[][] wordSearch, Scanner scan, String[] words, SecureRandom secureRandom, int rows, int columns) {
+    public static char[][] createWordSearch(char[][] wordSearch, Scanner scan, String[] words, 
+    SecureRandom secureRandom, int rows, int columns) {
+        //initialize
+        String currentWord;
         //populate wordsearch grid with '-' which will serve as blank spots
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
@@ -149,9 +159,6 @@ public class WordSearch {
             }//end inner for loop
         }//end outer for loop
 
-        String currentWord;
-        //add catch for if user enters wrong word (ie too long)
-        System.out.println("Words must be eight characters or under");
         //loop through words array and adds word user enter as value
         for (int i = 0; i < 8; i++) {
             System.out.println("Enter word " + (i + 1) + ":");
@@ -176,7 +183,8 @@ public class WordSearch {
     }//end method createWordSearch
 
     //user menu
-    public static void userMenu(int userInt, char [][] wordSearch, SecureRandom secureRandom, int rows, int columns, Scanner scan, String[] words) {
+    public static void userMenu(int userInt, char [][] wordSearch, SecureRandom secureRandom, 
+    int rows, int columns, Scanner scan, String[] words) {
         switch (userInt) {
             case 1 -> { //create a wordsearch
                 createWordSearch(wordSearch, scan, words, secureRandom, rows, columns);
@@ -198,9 +206,3 @@ public class WordSearch {
         System.out.println("4) Quit");
     } // end method userMenu
 }//end class
-
-//To do:
-// - remove test code, add comments and clean up before turning in
-// - exta credit (enums etc)
-// - try/catch finally for empty array wordSearch "you need to create a wordsearch
-//   before viewing"
