@@ -27,9 +27,9 @@ public class WordSearch {
     }//end main method
 
     //place word horizontally in a random location
-    //only putting rows and columns as parameters for test purposes (so i can change grid size easily)
-    public static char[][] placeHorizontally(char[][] wordSearch, SecureRandom secureRandom, String word, int rows, int columns) {
-        //create random ints for rows and columns
+    public static char[][] placeHorizontally(char[][] wordSearch, SecureRandom secureRandom, String word,
+    int rows, int columns) { //putting rows and columns as a parameter so size can easily be changed
+        //create random ints for placement
         int rowInt = secureRandom.nextInt(rows);
         int columnInt = secureRandom.nextInt(columns - word.length() + 1);
 
@@ -41,7 +41,7 @@ public class WordSearch {
                 wordSearch[rowInt][j] = word.charAt(index);
                 index++;//increasing so we can go through word
             } else {//if spot contains char erase all previous letter placements
-                //replace previous word placement with '-'s
+                //replace previous char placements with '-'
                 for (int i = columnInt; i < j; i++) {
                     wordSearch[rowInt][i] = '-';
                 }//end for loop
@@ -50,9 +50,8 @@ public class WordSearch {
                 rowInt = secureRandom.nextInt(rows);
                 columnInt = secureRandom.nextInt(columns - word.length() + 1); 
                 
-                j = columnInt - 1; //will go back to new value for column int when starting the loop again
+                j = columnInt - 1; //go back to new value for column int when starting the loop again
                 index = 0; //will start from beginning of word        
-                //go back to beginning of for loop
             }//end if/else
         }//end for loop
         return wordSearch;
@@ -149,7 +148,7 @@ public class WordSearch {
                 wordSearch[row][column] = '-';
             }//end inner for loop
         }//end outer for loop
-        
+
         String currentWord;
         //add catch for if user enters wrong word (ie too long)
         System.out.println("Words must be eight characters or under");
