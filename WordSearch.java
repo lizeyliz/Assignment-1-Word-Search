@@ -39,16 +39,6 @@ public class WordSearch {
             userInt = scan.nextInt();
         } while (userInt != 4);
         System.out.println("Goodbye!");
-        
-        //print wordsearch with answers
-        printWordSearch(wordSearch, rows, columns);
-        
-        //print wordsearch without answers
-        System.out.println();
-        System.out.println("Without answers:");
-        addRandomChars(wordSearch, secureRandom, rows, columns);
-        printWordSearch(wordSearch, rows, columns);
-
     }//end main method
 
     //place word horizontally in a random location
@@ -151,7 +141,7 @@ public class WordSearch {
         return wordSearch;
     }//end method addRandomChars
 
-    public static void printWordSearch(char[][] wordSearch, int rows, int columns) {
+    public static void printWordSearch(char[][] wordSearch, int rows, int columns, String[] words) {
         //print wordSearch[][] grid
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
@@ -159,6 +149,11 @@ public class WordSearch {
             }//end inner for loop
             System.out.println();
         }//end outer for loop
+        //print words to find
+        System.out.println("Find:");
+        for (int i = 0; i < 8; i++) {//loop through words array
+            System.out.println(words[i]);
+        }//end for loop
     }//end printWordSearch method
 
     //create a wordsearch
@@ -193,22 +188,15 @@ public class WordSearch {
     public static void userMenu(int userInt, char [][] wordSearch, SecureRandom secureRandom, int rows, int columns, Scanner scan, String[] words) {
         switch (userInt) {
             case 1 -> { //create a wordsearch
-                System.out.println("create a wordsearch (method)");
                 createWordSearch(wordSearch, scan, words, secureRandom, rows, columns);
-            }
-            case 2 -> { //view wordsearch with solution
-                System.out.println("view wordsearch with solution");
-                printWordSearch(wordSearch, rows, columns);
-            }
-            case 3 -> { //view wordsearch without solutions
-                System.out.println("view wordsearch w/o solutions");
+            } case 2 -> { //view wordsearch with solution
+                printWordSearch(wordSearch, rows, columns, words);
+            } case 3 -> { //view wordsearch without solutions
                 addRandomChars(wordSearch, secureRandom, rows, columns);
-                printWordSearch(wordSearch, rows, columns);
-            }
-            case 4 -> {
+                printWordSearch(wordSearch, rows, columns, words);
+            } case 4 -> {
                 //quit
-            }
-            default -> { //initialized to this, and does this if user enters wrong input
+            } default -> { //initialized to this, and does this if user enters wrong input
                 System.out.println("Enter a number between 1 and 4:");
             } 
         } //end switch/case
@@ -222,7 +210,6 @@ public class WordSearch {
 }//end class
 
 //To do:
-// - randomize directions for each word
 // - add key for words you need to find to printed wordsearch
 // - get user menu working
 // - remove test code, add comments and clean up before turning in
