@@ -8,29 +8,14 @@ import java.util.Scanner;
 
 public class WordSearch {
     public static void main(String[] args) {
-        //instance of SecureRandom (object)
+        //initialize section
         SecureRandom secureRandom = new SecureRandom();
-
-        //initialize
         int userInt = 0;
         Scanner scan = new Scanner(System.in);
-
-        //array to hold words
-        String[] words = new String[8];
-
-        
-
-
-        //initialize wordSearch array to rows x columns
+        String[] words = new String[8]; //array to hold words
         int rows = 20;
         int columns = 20;
-        char wordSearch[][] = new char[rows][columns];
-        //populate array wordSearch[][] with '-'
-        for (int row = 0; row < rows; row++) {
-            for (int column = 0; column < columns; column++) {
-                wordSearch[row][column] = '-';
-            }//end inner for loop
-        }//end outer for loop
+        char wordSearch[][] = new char[rows][columns]; //initialize wordSearch array to rows x columns
 
         //loop user menu
         do {  
@@ -158,6 +143,13 @@ public class WordSearch {
 
     //create a wordsearch
     public static char[][] createWordSearch(char[][] wordSearch, Scanner scan, String[] words, SecureRandom secureRandom, int rows, int columns) {
+        //populate wordsearch grid with '-' which will serve as blank spots
+        for (int row = 0; row < rows; row++) {
+            for (int column = 0; column < columns; column++) {
+                wordSearch[row][column] = '-';
+            }//end inner for loop
+        }//end outer for loop
+        
         String currentWord;
         //add catch for if user enters wrong word (ie too long)
         System.out.println("Words must be eight characters or under");
@@ -206,14 +198,10 @@ public class WordSearch {
         System.out.println("3) View a wordsearch without solutions");
         System.out.println("4) Quit");
     } // end method userMenu
-
 }//end class
 
 //To do:
-// - add key for words you need to find to printed wordsearch
-// - get user menu working
 // - remove test code, add comments and clean up before turning in
 // - exta credit (enums etc)
 // - try/catch finally for empty array wordSearch "you need to create a wordsearch
 //   before viewing"
-// - enums for word list
