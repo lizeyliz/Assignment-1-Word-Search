@@ -180,13 +180,29 @@ public class WordSearch {
     }//end printWordSearch method
 
     //create a wordsearch
-    public static char[][] createWordSearch(char[][] wordSearch, Scanner scan, String[] words) {
+    public static char[][] createWordSearch(char[][] wordSearch, Scanner scan, String[] words, SecureRandom secureRandom) {
         //add catch for if user enters wrong word (ie too long)
         System.out.println("Words must be eight characters or under");
         //loop through words array and adds word user enter as value
         for (int i = 0; i < 8; i++) {
             System.out.println("Enter word " + (i + 1) + ":");
             words[i] = scan.next();
+        } //end for loop
+
+        int randomDirection = secureRandom.nextInt(3);
+
+        //print chosen words in random directions
+        for (int i = 0; i < 8; i++) { //loop through words array
+            switch(randomDirection) {
+                case 0 -> {//place word horizontally
+
+
+                } case 1 -> {//place word vertically
+
+                } case 2 -> {//place word diagonally
+
+                }//end switch/case
+            }
         } //end for loop
 
         return wordSearch;
@@ -196,7 +212,7 @@ public class WordSearch {
         switch (userInt) {
             case 1 -> { //create a wordsearch
                 System.out.println("create a wordsearch (method)");
-                createWordSearch(wordSearch, scan, words);
+                createWordSearch(wordSearch, scan, words, secureRandom);
 
             }
             case 2 -> { //view wordsearch with solution
