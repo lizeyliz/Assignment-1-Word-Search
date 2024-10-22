@@ -69,11 +69,6 @@ public class WordSearch {
         int rowInt = secureRandom.nextInt(rows);
         int columnInt = secureRandom.nextInt(columns - word.length() + 1);
 
-        //test printing
-        System.out.println(word);
-        System.out.println("Row int initial: " + rowInt);
-        System.out.println("Column intitial: " + columnInt);
-
         //place word horizontally
         int index = 0; //index in string
         for (int j = columnInt; j < columnInt + word.length(); j++) {
@@ -92,10 +87,7 @@ public class WordSearch {
                 columnInt = secureRandom.nextInt(columns - word.length() + 1); 
                 
                 j = columnInt - 1; //will go back to new value for column int when starting the loop again
-                index = 0; //will start from beginning of word
-
-                //test code
-                System.out.println("word was moved to new location");          
+                index = 0; //will start from beginning of word        
                 //go back to beginning of for loop
             }//end if/else
         }//end for loop
@@ -103,15 +95,10 @@ public class WordSearch {
     }//end method placeHorizontally
 
     //place a word vertically in a random place
-    //works, but need to add code so it doesn't overwrite other words
     public static char[][] placeVertically (char[][] wordSearch, SecureRandom secureRandom, String word, int rows, int columns) {
         //create random ints
         int rowInt = secureRandom.nextInt(rows - word.length() + 1);
         int columnInt = secureRandom.nextInt(columns);
-        //print for test purposes
-        System.out.println(word);
-        System.out.println("Row int: " + rowInt);
-        System.out.println("Column int: " + columnInt);
         //row increase, column stays the same
         int index = 0;
         
@@ -134,22 +121,14 @@ public class WordSearch {
                 index = 0; //will start from beginning of word        
                 //go back to beginning of for loop
             }//end if/else
-            //wordSearch[row][columnInt] = word.charAt(index);
-            //index++;
         }//end for loop
         return wordSearch;
     }//end placeVertically method
 
     //place diagonally
-    //still working on: currently generates in specific spot, will add random generation
     public static char[][] placeDiagonally (char[][] wordSearch, SecureRandom secureRandom, String word, int rows, int columns) {
         int rowInt = secureRandom.nextInt(rows - word.length() + 1);
         int columnInt = secureRandom.nextInt(columns - word.length() + 1);
-
-        //test purposes
-        System.out.println(word);
-        System.out.println("Initial row: " + rowInt);
-        System.out.println("Initial column: " + columnInt);
 
         //generate without overlaps
         for (int index = 0; index < word.length(); index++) {
@@ -162,7 +141,6 @@ public class WordSearch {
                 rowInt = secureRandom.nextInt(rows - word.length() + 1);
                 columnInt = secureRandom.nextInt(columns - word.length() + 1);
                 index = -1;
-                System.out.println("Moved word");
             }//end if/else
         }//end for loop
         return wordSearch;
@@ -223,11 +201,11 @@ public class WordSearch {
 }//end class
 
 //To do:
-// - make different printing directions their own methods and randomize which
-//   method is called for each word?
+// - randomize directions for each word
 // - add key for words you need to find to printed wordsearch
 // - get user menu working
 // - remove test code, add comments and clean up before turning in
 // - exta credit (enums etc)
 // - try/catch finally for empty array wordSearch "you need to create a wordsearch
 //   before viewing"
+// - enums for word list
