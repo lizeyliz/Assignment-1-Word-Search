@@ -15,13 +15,6 @@ public class WordSearch {
         int userInt = 0;
         Scanner scan = new Scanner(System.in);
 
-        //initialize words (getting rid of this later)
-        String word1 = "crane";
-        String word2 = "place";
-        String word3 = "times";
-        String word4 = "happy";
-        String word5 = "crazy";
-
         //array to hold words
         String[] words = new String[8];
 
@@ -46,17 +39,6 @@ public class WordSearch {
             userInt = scan.nextInt();
         } while (userInt != 4);
         System.out.println("Goodbye!");
-
-        //call method placeHorizontally for word1
-        placeHorizontally(wordSearch, secureRandom, word1, rows, columns);
-        //call method placeHorizontally for word2
-        placeHorizontally(wordSearch, secureRandom, word2, rows, columns);
-        //call method placeVertically for word3
-        placeVertically(wordSearch, secureRandom, word3, rows, columns);
-        //call place diagonally for word4
-        placeDiagonally(wordSearch, secureRandom, word4, rows, columns);
-        //call place vertically for word 5
-        placeVertically(wordSearch, secureRandom, word5, rows, columns);
         
         //print wordsearch with answers
         printWordSearch(wordSearch, rows, columns);
@@ -181,7 +163,7 @@ public class WordSearch {
 
     //create a wordsearch
     public static char[][] createWordSearch(char[][] wordSearch, Scanner scan, String[] words, SecureRandom secureRandom, int rows, int columns) {
-        String currentWord ="";
+        String currentWord;
         //add catch for if user enters wrong word (ie too long)
         System.out.println("Words must be eight characters or under");
         //loop through words array and adds word user enter as value
