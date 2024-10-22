@@ -180,31 +180,35 @@ public class WordSearch {
     }//end printWordSearch method
 
     //create a wordsearch
-    public static char[][] createWordSearch(char[][] wordSearch, Scanner scan, String[] words, SecureRandom secureRandom) {
+    public static char[][] createWordSearch(char[][] wordSearch, Scanner scan, String[] words, SecureRandom secureRandom, int rows, int columns) {
+        String currentWord ="";
         //add catch for if user enters wrong word (ie too long)
         System.out.println("Words must be eight characters or under");
         //loop through words array and adds word user enter as value
         for (int i = 0; i < 8; i++) {
             System.out.println("Enter word " + (i + 1) + ":");
-            words[i] = scan.next();
+            words[i] = scan.next().toLowerCase(); //get word and make it lowercase, put in array
         } //end for loop
 
-        int randomDirection = secureRandom.nextInt(3);
+        int randomDirection = 0; //secureRandom.nextInt(3); //number between 0-2 (inclusive)
 
         //print chosen words in random directions
-        for (int i = 0; i < 8; i++) { //loop through words array
+        for (int i = 0; i < 8; i++) { //loop through words array 
+            currentWord = words[i];
             switch(randomDirection) {
                 case 0 -> {//place word horizontally
+                    placeHorizontally(wordSearch, secureRandom, currentWord, rows, columns);
 
 
                 } case 1 -> {//place word vertically
 
                 } case 2 -> {//place word diagonally
 
-                }//end switch/case
-            }
+                }
+            }//end switch/case
         } //end for loop
-
+        //for test purposes
+        printWordSearch(wordSearch, rows, columns);
         return wordSearch;
     }//end method createWordSearch
     //user menu
@@ -212,8 +216,7 @@ public class WordSearch {
         switch (userInt) {
             case 1 -> { //create a wordsearch
                 System.out.println("create a wordsearch (method)");
-                createWordSearch(wordSearch, scan, words, secureRandom);
-
+                createWordSearch(wordSearch, scan, words, secureRandom, rows, columns);
             }
             case 2 -> { //view wordsearch with solution
                 System.out.println("view wordsearch with solution");
