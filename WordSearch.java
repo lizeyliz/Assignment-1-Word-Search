@@ -190,27 +190,23 @@ public class WordSearch {
             words[i] = scan.next().toLowerCase(); //get word and make it lowercase, put in array
         } //end for loop
 
-        int randomDirection = 0; //secureRandom.nextInt(3); //number between 0-2 (inclusive)
-
         //print chosen words in random directions
         for (int i = 0; i < 8; i++) { //loop through words array 
+            int randomDirection = secureRandom.nextInt(3); //number between 0-2 (inclusive)
             currentWord = words[i];
             switch(randomDirection) {
                 case 0 -> {//place word horizontally
                     placeHorizontally(wordSearch, secureRandom, currentWord, rows, columns);
-
-
                 } case 1 -> {//place word vertically
-
+                    placeVertically(wordSearch, secureRandom, currentWord, rows, columns);
                 } case 2 -> {//place word diagonally
-
+                    placeDiagonally(wordSearch, secureRandom, currentWord, rows, columns);
                 }
             }//end switch/case
         } //end for loop
-        //for test purposes
-        printWordSearch(wordSearch, rows, columns);
         return wordSearch;
     }//end method createWordSearch
+
     //user menu
     public static void userMenu(int userInt, char [][] wordSearch, SecureRandom secureRandom, int rows, int columns, Scanner scan, String[] words) {
         switch (userInt) {
