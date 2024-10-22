@@ -15,16 +15,22 @@ public class WordSearch {
         int userInt = 0;
         Scanner scan = new Scanner(System.in);
 
-        //initialize words
+        //initialize words (getting rid of this later)
         String word1 = "crane";
         String word2 = "place";
         String word3 = "times";
         String word4 = "happy";
         String word5 = "crazy";
 
+        //array to hold words
+        String[] words = new String[8];
+
+        
+
+
         //initialize wordSearch array to rows x columns
-        int rows = 12;
-        int columns = 12;
+        int rows = 20;
+        int columns = 20;
         char wordSearch[][] = new char[rows][columns];
         //populate array wordSearch[][] with '-'
         for (int row = 0; row < rows; row++) {
@@ -35,7 +41,7 @@ public class WordSearch {
 
         //loop user menu
         do {  
-            userMenu(userInt, wordSearch, secureRandom, rows, columns, scan);
+            userMenu(userInt, wordSearch, secureRandom, rows, columns, scan, words);
             //get user input
             userInt = scan.nextInt();
         } while (userInt != 4);
@@ -174,29 +180,23 @@ public class WordSearch {
     }//end printWordSearch method
 
     //create a wordsearch
-    public static char[][] createWordSearch(char[][] wordSearch, Scanner scan) {
+    public static char[][] createWordSearch(char[][] wordSearch, Scanner scan, String[] words) {
         //add catch for if user enters wrong word (ie too long)
         System.out.println("Words must be eight characters or under");
-        System.out.println("Enter word 1:");
-
-        System.out.println("Enter word 2:");
-
-        System.out.println("Enter word 3:");
-
-        System.out.println("Enter word 4:");
-
-        System.out.println("Enter word 5:");
-
-
+        //loop through words array and adds word user enter as value
+        for (int i = 0; i < 8; i++) {
+            System.out.println("Enter word " + (i + 1) + ":");
+            words[i] = scan.next();
+        } //end for loop
 
         return wordSearch;
     }//end method createWordSearch
     //user menu
-    public static void userMenu(int userInt, char [][] wordSearch, SecureRandom secureRandom, int rows, int columns, Scanner scan) {
+    public static void userMenu(int userInt, char [][] wordSearch, SecureRandom secureRandom, int rows, int columns, Scanner scan, String[] words) {
         switch (userInt) {
             case 1 -> { //create a wordsearch
                 System.out.println("create a wordsearch (method)");
-                createWordSearch(wordSearch, scan);
+                createWordSearch(wordSearch, scan, words);
 
             }
             case 2 -> { //view wordsearch with solution
