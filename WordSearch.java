@@ -14,13 +14,6 @@ public class WordSearch {
         //initialize
         int userInt = 0;
         Scanner scan = new Scanner(System.in);
-        //loop user menu
-        /*do {  
-            userMenu(userInt);
-            //get user input
-            userInt = scan.nextInt();
-        } while (userInt != 4);
-        System.out.println("Goodbye!");*/
 
         //initialize words
         String word1 = "crane";
@@ -33,12 +26,20 @@ public class WordSearch {
         int rows = 12;
         int columns = 12;
         char wordSearch[][] = new char[rows][columns];
-        //populate array wordSearch[][] with xs
+        //populate array wordSearch[][] with '-'
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
                 wordSearch[row][column] = '-';
             }//end inner for loop
         }//end outer for loop
+
+        //loop user menu
+        do {  
+            userMenu(userInt, wordSearch, secureRandom, rows, columns);
+            //get user input
+            userInt = scan.nextInt();
+        } while (userInt != 4);
+        System.out.println("Goodbye!");
 
         //call method placeHorizontally for word1
         placeHorizontally(wordSearch, secureRandom, word1, rows, columns);
@@ -162,7 +163,7 @@ public class WordSearch {
         return wordSearch;
     }//end method addRandomChars
 
-    public static void printWordSearch(char wordSearch[][], int rows, int columns) {
+    public static void printWordSearch(char[][] wordSearch, int rows, int columns) {
         //print wordSearch[][] grid
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
@@ -172,22 +173,31 @@ public class WordSearch {
         }//end outer for loop
     }//end printWordSearch method
 
+    //create a wordsearch
+    public static char[][] createWordSearch(char[][] wordSearch) {
+
+
+
+        return wordSearch;
+    }//end method createWordSearch
     //user menu
-    public static void userMenu(int userInt){
+    public static void userMenu(int userInt, char [][] wordSearch, SecureRandom secureRandom, int rows, int columns) {
         switch (userInt) {
-            case 1 -> {
+            case 1 -> { //create a wordsearch
                 System.out.println("create a wordsearch (method)");
+
             }
-            case 2 -> {
+            case 2 -> { //view wordsearch with solution
                 System.out.println("view wordsearch with solution");
             }
-            case 3 -> {
-                System.out.println("view wordsearch without solutions");
+            case 3 -> { //view wordsearch without solutions
+                System.out.println("view wordsearch w/o solutions");
+                printWordSearch(wordSearch, rows, columns);
             }
             case 4 -> {
                 //quit
             }
-            default -> {
+            default -> { //initialized to this, and does this if user enters wrong input
                 System.out.println("Enter a number between 1 and 4:");
             } 
         } //end switch/case
