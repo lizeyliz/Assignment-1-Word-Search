@@ -1,3 +1,13 @@
+// Aliza Eaton
+
+// 10/22/24
+
+// CS 145 8am
+
+// Assignment 1: Wordsearch Generator
+
+//Purpose: Allow user to create a wordsearch, view with solutions, and view without solutions.
+
 // Citation:
 // Multi-Dimensional Arrays: https://www.w3schools.com/java/java_arrays_multi.asp 
 // Google AI search "print grid in Java"
