@@ -35,7 +35,7 @@ public class WordSearch {
 
         //loop user menu
         do {  
-            userMenu(userInt, wordSearch, secureRandom, rows, columns);
+            userMenu(userInt, wordSearch, secureRandom, rows, columns, scan);
             //get user input
             userInt = scan.nextInt();
         } while (userInt != 4);
@@ -174,24 +174,38 @@ public class WordSearch {
     }//end printWordSearch method
 
     //create a wordsearch
-    public static char[][] createWordSearch(char[][] wordSearch) {
+    public static char[][] createWordSearch(char[][] wordSearch, Scanner scan) {
+        //add catch for if user enters wrong word (ie too long)
+        System.out.println("Words must be eight characters or under");
+        System.out.println("Enter word 1:");
+
+        System.out.println("Enter word 2:");
+
+        System.out.println("Enter word 3:");
+
+        System.out.println("Enter word 4:");
+
+        System.out.println("Enter word 5:");
 
 
 
         return wordSearch;
     }//end method createWordSearch
     //user menu
-    public static void userMenu(int userInt, char [][] wordSearch, SecureRandom secureRandom, int rows, int columns) {
+    public static void userMenu(int userInt, char [][] wordSearch, SecureRandom secureRandom, int rows, int columns, Scanner scan) {
         switch (userInt) {
             case 1 -> { //create a wordsearch
                 System.out.println("create a wordsearch (method)");
+                createWordSearch(wordSearch, scan);
 
             }
             case 2 -> { //view wordsearch with solution
                 System.out.println("view wordsearch with solution");
+                printWordSearch(wordSearch, rows, columns);
             }
             case 3 -> { //view wordsearch without solutions
                 System.out.println("view wordsearch w/o solutions");
+                addRandomChars(wordSearch, secureRandom, rows, columns);
                 printWordSearch(wordSearch, rows, columns);
             }
             case 4 -> {
