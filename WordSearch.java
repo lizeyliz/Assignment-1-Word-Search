@@ -133,9 +133,7 @@ public class WordSearch {
                 if(wordSearch[row][column] == '-') { //if char = '-', replace with random nums
                     //fills word search with chars a-z
                     wordSearch[row][column] = (char)(secureRandom.nextInt(26) + 97); //a-z ASCII values are 97-122
-                } else {
-                    //leave it alone
-                }//end if/else
+                } //end if
             }//end inner for loop
         }//end outer for loop
         return wordSearch;
