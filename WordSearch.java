@@ -14,7 +14,7 @@ public class WordSearch {
         
         //loop user menu
         do {  
-            userMenu(userInt, wordSearch, secureRandom, grid, scan, words);
+            userMenu(userInt, wordSearch, secureRandom, grid, scan);
             //get user input
             userInt = scan.nextInt();
         } while (userInt != 4);
@@ -148,7 +148,7 @@ public class WordSearch {
     }//end printWordSearch method
 
     //create a wordsearch
-    public static char[][] createWordSearch(char[][] wordSearch, Scanner scan, String[] words, 
+    public static char[][] createWordSearch(char[][] wordSearch, Scanner scan, 
     SecureRandom secureRandom, WordSearchGrid grid) {
         //initialize
         String currentWord;
@@ -162,13 +162,13 @@ public class WordSearch {
         //loop through words array and adds word user enter as value
         for (int i = 0; i < 8; i++) {
             System.out.println("Enter word " + (i + 1) + ":");
-            words[i] = scan.next().toLowerCase(); //get word and make it lowercase, put in array
+            grid.getWords()[i] = scan.next().toLowerCase(); //get word and make it lowercase, put in array
         } //end for loop
 
         //print chosen words in random directions
         for (int i = 0; i < 8; i++) { //loop through words array 
             int randomDirection = secureRandom.nextInt(3); //number between 0-2 (inclusive)
-            currentWord = words[i];
+            currentWord = grid.getWords()[i];
             switch(randomDirection) {
                 case 0 -> {//place word horizontally
                     placeHorizontally(wordSearch, secureRandom, currentWord, grid);
@@ -184,10 +184,10 @@ public class WordSearch {
 
     //user menu
     public static void userMenu(int userInt, char [][] wordSearch, SecureRandom secureRandom,
-    WordSearchGrid grid, Scanner scan, String[] words) {
+    WordSearchGrid grid, Scanner scan) {
         switch (userInt) {
             case 1 -> { //create a wordsearch
-                createWordSearch(wordSearch, scan, words, secureRandom, grid);
+                createWordSearch(wordSearch, scan, secureRandom, grid);
             } case 2 -> { //view wordsearch with solution
                 printWordSearch(wordSearch, grid);
             } case 3 -> { //view wordsearch without solutions
