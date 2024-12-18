@@ -8,8 +8,7 @@ public class WordSearch {
         int userInt = 0;
         Scanner scan = new Scanner(System.in);
         
-        String[] words = new String[8]; //array to hold words (may remove)
-        WordSearchGrid grid = new WordSearchGrid(20,20, words);
+        WordSearchGrid grid = new WordSearchGrid(20,20);
         char wordSearch[][] = new char[grid.getRows()][grid.getColumns()]; //initialize wordSearch array to rows x columns
         
         //loop user menu

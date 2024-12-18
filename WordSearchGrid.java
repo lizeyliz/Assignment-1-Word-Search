@@ -1,12 +1,12 @@
 public class WordSearchGrid {
     private int rows; 
     private int columns;
-    private String[] words;
+    //currently have word array set to 8, should change so user can determine size
+    private String[] words = new String[8];
     //constructor
-    public WordSearchGrid(int rows, int columns, String[] words) {
+    public WordSearchGrid(int rows, int columns) {
         this.rows = rows; 
         this.columns = columns;
-        this.words = words;
     }
     //getters and setter
     public int getRows() {
