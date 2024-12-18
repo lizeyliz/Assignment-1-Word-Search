@@ -7,6 +7,7 @@ public class WordSearch {
         SecureRandom secureRandom = new SecureRandom();
         int userInt = 0;
         Scanner scan = new Scanner(System.in);
+        WordSearchGrid grid = new WordSearchGrid(20,20);
         String[] words = new String[8]; //array to hold words
         int rows = 20;
         int columns = 20;
