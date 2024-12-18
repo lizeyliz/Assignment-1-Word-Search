@@ -1,12 +1,12 @@
 public class WordSearchGrid {
     private int rows; 
     private int columns;
-    //private String[] words;
+    private String[] words;
     //constructor
-    public WordSearchGrid(int rows, int columns) {
+    public WordSearchGrid(int rows, int columns, String[] words) {
         this.rows = rows; 
         this.columns = columns;
-        //this.words = words;
+        this.words = words;
     }
     //getters and setter
     public int getRows() {
@@ -21,10 +21,10 @@ public class WordSearchGrid {
     public void setColumns(int columns) {
         this.columns = columns;
     }
-    /*public String[] getWords() {
+    public String[] getWords() {
         return words;
     }
     public void setWords(String[] words) {
         this.words = words;
-    }*/
+    }
 }

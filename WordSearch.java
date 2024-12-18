@@ -7,9 +7,9 @@ public class WordSearch {
         SecureRandom secureRandom = new SecureRandom();
         int userInt = 0;
         Scanner scan = new Scanner(System.in);
-        //working on replacing all these parameter variables with an object class
-        WordSearchGrid grid = new WordSearchGrid(20,20);
-        String[] words = new String[8]; //array to hold words
+        
+        String[] words = new String[8]; //array to hold words (may remove)
+        WordSearchGrid grid = new WordSearchGrid(20,20, words);
         char wordSearch[][] = new char[grid.getRows()][grid.getColumns()]; //initialize wordSearch array to rows x columns
         
         //loop user menu
