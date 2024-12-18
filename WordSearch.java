@@ -125,9 +125,9 @@ public class WordSearch {
     }//end method addRandomChars
     
     //print wordSearch
-    public static void printWordSearch(char[][] wordSearch, WordSearchGrid grid, String[] words) {
+    public static void printWordSearch(char[][] wordSearch, WordSearchGrid grid) {
         //exception if user hasn't created a wordsearch yet
-        for (String i : words) {
+        for (String i : grid.getWords()) {
             if(i == null) {
                 System.out.println("Please create a wordsearch to view.");
                 return;
@@ -143,7 +143,7 @@ public class WordSearch {
         //print words to find
         System.out.println("Find:");
         for (int i = 0; i < 8; i++) {//loop through words array
-            System.out.println(words[i]);
+            System.out.println(grid.getWords()[i]);
         }//end for loop
     }//end printWordSearch method
 
@@ -189,10 +189,10 @@ public class WordSearch {
             case 1 -> { //create a wordsearch
                 createWordSearch(wordSearch, scan, words, secureRandom, grid);
             } case 2 -> { //view wordsearch with solution
-                printWordSearch(wordSearch, grid, words);
+                printWordSearch(wordSearch, grid);
             } case 3 -> { //view wordsearch without solutions
                 addRandomChars(wordSearch, secureRandom, grid);
-                printWordSearch(wordSearch, grid, words);
+                printWordSearch(wordSearch, grid);
             } case 4 -> {
                 //quit
             } default -> { //initialized to this, and does this if user enters wrong input
