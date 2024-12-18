@@ -1,18 +1,3 @@
-// Aliza Eaton
-
-// 10/22/24
-
-// CS 145 8am
-
-// Assignment 1: Wordsearch Generator
-
-//Purpose: Allow user to create a wordsearch, view with solutions, and view without solutions.
-
-// Citation:
-// Multi-Dimensional Arrays: https://www.w3schools.com/java/java_arrays_multi.asp 
-// Google AI search "print grid in Java"
-// Google AI search "initialize multidimensional array to size java"
-
 import java.security.SecureRandom;
 import java.util.Scanner;
 
@@ -230,3 +215,5 @@ public class WordSearch {
 // - add overlap capability
 // - addRandomChars permanently alters, preserve original
 // - ask user to name wordsearch and save different wordsearches
+// (create wordsearch object class and then create arraylist of different 
+// wordsearches user has created?)
