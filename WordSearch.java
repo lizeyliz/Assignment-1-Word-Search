@@ -26,7 +26,7 @@ public class WordSearch {
         int rows = 20;
         int columns = 20;
         char wordSearch[][] = new char[rows][columns]; //initialize wordSearch array to rows x columns
-
+        
         //loop user menu
         do {  
             userMenu(userInt, wordSearch, secureRandom, rows, columns, scan, words);
@@ -141,6 +141,13 @@ public class WordSearch {
     
     //print wordSearch
     public static void printWordSearch(char[][] wordSearch, int rows, int columns, String[] words) {
+        //exception if user hasn't created a wordsearch yet
+        for (String i : words) {
+            if(i == null) {
+                System.out.println("Please create a wordsearch to view.");
+                return;
+            }
+        }
         //loop through wordsearch and print
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
@@ -214,3 +221,12 @@ public class WordSearch {
         System.out.println("4) Quit");
     } // end method userMenu
 }//end class
+
+// To do:
+// - let user choose number of size of wordsearch and number of words
+// - create WordSearchGrid class for words, columns, wordSearch[][], so you don't
+// need so many parameters
+// - optimize user menu
+// - add overlap capability
+// - addRandomChars permanently alters, preserve original
+// - ask user to name wordsearch and save different wordsearches
