@@ -10,7 +10,6 @@ public class WordSearch {
         
         WordSearchGrid grid = new WordSearchGrid(20,20);
         char wordSearch[][] = new char[grid.getRows()][grid.getColumns()]; //initialize wordSearch array to rows x columns
-        
         //loop user menu
         do {  
             userMenu(userInt, wordSearch, secureRandom, grid, scan);
@@ -208,8 +207,7 @@ public class WordSearch {
 
 // To do:
 // - let user choose number of size of wordsearch and number of words
-// - create WordSearchGrid class for words, columns, wordSearch[][], so you don't
-// need so many parameters
+// - create WordSearchGrid class so you don'tn need so many parameters
 // - optimize user menu
 // - add overlap capability
 // - addRandomChars permanently alters, preserve original
