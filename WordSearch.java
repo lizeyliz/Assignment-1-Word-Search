@@ -204,13 +204,3 @@ public class WordSearch {
         System.out.println("4) Quit");
     } // end method userMenu
 }//end class
-
-// To do:
-// - let user choose number of size of wordsearch and number of words
-// - create WordSearchGrid class so you don'tn need so many parameters
-// - optimize user menu
-// - add overlap capability
-// - addRandomChars permanently alters, preserve original
-// - ask user to name wordsearch and save different wordsearches
-// (create wordsearch object class and then create arraylist of different 
-// wordsearches user has created?)
